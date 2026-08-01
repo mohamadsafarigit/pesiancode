@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
 /* ---------------- PASSWORD INPUT ---------------- */
 function PasswordInput({ value, onChange }) {
   const [show, setShow] = useState(false);
@@ -33,9 +34,10 @@ function ForgotPasswordForm({ onBack }) {
   function handleReset(e) {
     e.preventDefault();
 
-    const saved = JSON.parse(localStorage.getItem("user"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const found = users.find(u => u.email === email);
 
-    if (!saved || saved.email !== email) {
+    if (!found) {
       alert("No account found with this email.");
       return;
     }
@@ -94,28 +96,24 @@ function Tabs({ active, onChange }) {
 /* ---------------- LOGIN FORM ---------------- */
 function LoginForm({ onForgot }) {
   const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleLogin(e) {
     e.preventDefault();
 
-    const saved = JSON.parse(localStorage.getItem("user"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const found = users.find(
+      (u) => u.email === email && u.password === password
+    );
 
-    if (!saved) {
-      alert("No account found. Please sign up first.");
+    if (!found) {
+      alert("Incorrect email or password.");
       return;
     }
 
-    if (saved.email === email && saved.password === password) {
-      alert("Login successful!");
-
-      // 🔥 اینجا می‌ره داخل داشبورد
-      router.push("/dashboard");
-    } else {
-      alert("Incorrect email or password.");
-    }
+    localStorage.setItem("currentUser", JSON.stringify(found));
+    router.push("/dashboard");
   }
 
   return (
@@ -145,7 +143,6 @@ function LoginForm({ onForgot }) {
   );
 }
 
-
 /* ---------------- SIGNUP FORM ---------------- */
 function SignupForm() {
   const [name, setName] = useState("");
@@ -155,8 +152,17 @@ function SignupForm() {
   function handleSignup(e) {
     e.preventDefault();
 
-    const user = { name, email, password };
-    localStorage.setItem("user", JSON.stringify(user));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const newUser = {
+      name,
+      email,
+      password,
+      role: "user"
+    };
+
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
 
     alert("Account created! You can now login.");
   }
@@ -192,6 +198,23 @@ function SignupForm() {
 export default function AuthPage() {
   const [tab, setTab] = useState("login");
   const [forgot, setForgot] = useState(false);
+
+  useEffect(() => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const adminExists = users.some(u => u.role === "admin");
+
+    if (!adminExists) {
+      users.push({
+        name: "Admin",
+        email: "admin@example.com",
+        password: "123456",
+        role: "admin"
+      });
+
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-[#0f172a] text-white flex items-center justify-center">
