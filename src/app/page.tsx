@@ -34,22 +34,22 @@ export default function Home() {
     <main className="font-sans bg-[#0f172a] text-white">
 
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-10 py-6">
-        <h1 className="text-2xl font-bold">Hostinger Clone</h1>
-        <div className="flex gap-8 text-gray-300">
-          <span>Web Hosting</span>
-          <span>VPS Hosting</span>
-          <span>Domain</span>
-         <span>
-  <Link href="/login" className="hover:text-white transition">
-    Login
-  </Link>
-</span>
-<span>
-  <Link href="/contact" className="hover:text-white transition">
-    Contact
-  </Link>
-</span>
+      <nav className="flex justify-start items-center px-8 py-5 bg-white" dir="ltr">
+        <h1 className="text-2xl font-bold text-black " >Hostinger Clone</h1>
+        <div className="flex gap-6 text-black px-30  ">
+          <span> Web Hosting </span>
+          <span> VPS Hosting </span>
+          <span> Domain </span>
+    <span>
+      <Link href="/login" className="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out px-10 py-2 rounded-full border border-black-1000 hover:border-blue-500 ml-60">
+        Login
+      </Link>
+    </span>
+    <span>
+      <Link href="/contact" className="text-gray-700 hover:text-blue-500 transition duration-300 ease-in-out px-8 py-2 rounded-full border border-black-1000 hover:border-blue-500 bg-blue-500">
+        Contact
+      </Link>
+    </span>
         </div>
       </nav>
 
