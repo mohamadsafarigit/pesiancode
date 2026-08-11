@@ -1,6 +1,6 @@
 "use client";
 
-export default function DashboardPage() {
+export default function Dashboard2Page() {
   const courses = [
     { name: "Building Scalable APIs With GraphQL", selling: 42, amount: 18432, period: "06 months" },
     { name: "Building Scalable APIs With GraphQL", selling: 36, amount: 20560, period: "09 months" },
@@ -187,3 +187,4 @@ export default function DashboardPage() {
     </main>
   );
 }
+
