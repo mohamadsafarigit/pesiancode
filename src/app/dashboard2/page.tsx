@@ -234,8 +234,10 @@ export default function DashboardPage() {
         </div>{" "}
         {/* --- این همان div با کلاس flex است که اضافه کردیم */}
       </main>
+
+      
       <footer className="bg-slate-800  text-slate-100 h-60 flex pl-20  gap-15 text-xs pt-10 ">
-        <div >
+        <div>
           <div className="flex items-center">
             <img src="/logo2.png" alt="logo"/>
             <span className="text-2xl"> LearnUp </span>
@@ -250,8 +252,6 @@ export default function DashboardPage() {
             <p>  support@learnup.com </p>
           </div>
         </div>
-
-
         <div className="">
           <h3 className="text-xl font-semibold ">Navigations</h3>
           <ul className="space-y-3 text-slate-300">
@@ -271,8 +271,7 @@ export default function DashboardPage() {
             <li><a href="#" className="hover:text-white transition">WordPress</a></li>
             <li><a href="#" className="hover:text-white transition">PHP</a></li>
           </ul>
-        </div>
-        
+        </div>  
       <div className="">
           <h3 className="text-xl font-semibold ">Help & Support</h3>
           <ul className="space-y-3 text-slate-300 ">
@@ -282,12 +281,17 @@ export default function DashboardPage() {
             <li><a href="#" className="hover:text-white transition">Privacy</a></li>
             <li><a href="#" className="hover:text-white transition">Faqs</a></li>
           </ul>
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold ">Download Apps</h3>
-          
-        </div>
-
+      </div>
+<div>
+  <h3 className="text-xl  font-semibold">Download Apps</h3>
+  <a href="#" className="inline-flex items-center gap-4 px-12 py-3 text-white bg-slate-800 border border-slate-600 hover:bg-slate-700 rounded-lg transition duration-300 shadow-lg">
+    <img src="/logo4.png"  alt="Logo"/>
+    <div className="flex flex-col items-start">
+      <span className="text-xl font-bold">Google Play</span>
+      <span className="text-sm text-slate-400">Get It Now</span>
+    </div>
+  </a>
+</div>
       </footer>
     </>
   );
