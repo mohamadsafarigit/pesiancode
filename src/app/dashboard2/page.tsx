@@ -236,7 +236,7 @@ export default function DashboardPage() {
       </main>
 
       
-      <footer className="bg-slate-800  text-slate-100 h-60 flex pl-20  gap-15 text-xs pt-10 ">
+     <footer className="bg-slate-800 text-slate-100 flex pl-19 gap-15 text-xs pt-10 pb-10">
         <div>
           <div className="flex items-center">
             <img src="/logo2.png" alt="logo"/>
@@ -247,8 +247,9 @@ export default function DashboardPage() {
              <p className="text-sm"> Montreal </p>
               <p className="text-sm"> United State </p>
           </div>
-          <div className="mt-10">
-            <p> +1 246-345-0695</p>
+          <div className="pt-5">
+            <p>   
+               +1 246-345-0695</p>
             <p>  support@learnup.com </p>
           </div>
         </div>
@@ -272,7 +273,7 @@ export default function DashboardPage() {
             <li><a href="#" className="hover:text-white transition">PHP</a></li>
           </ul>
         </div>  
-      <div className="">
+      <div>
           <h3 className="text-xl font-semibold ">Help & Support</h3>
           <ul className="space-y-3 text-slate-300 ">
             <li><a href="#" className="hover:text-white transition">Documentation</a></li>
@@ -282,15 +283,23 @@ export default function DashboardPage() {
             <li><a href="#" className="hover:text-white transition">Faqs</a></li>
           </ul>
       </div>
-<div>
+<div className="flex flex-col ">
   <h3 className="text-xl  font-semibold">Download Apps</h3>
-  <a href="#" className="inline-flex items-center gap-4 px-12 py-3 text-white bg-slate-800 border border-slate-600 hover:bg-slate-700 rounded-lg transition duration-300 shadow-lg">
-    <img src="/logo4.png"  alt="Logo"/>
+  <a href="#" className="inline-flex items-center gap-4 pl-3 pr-12 py-2 mt-5 text-white bg-[#1C3144] border border-slate-600  rounded-lg transition duration-300 shadow-lg">
+    <img src="/logo3.png"  alt="Logo"/>
     <div className="flex flex-col items-start">
       <span className="text-xl font-bold">Google Play</span>
       <span className="text-sm text-slate-400">Get It Now</span>
     </div>
   </a>
+<a href="#" className="inline-flex items-center gap-4 pl-3 pr-14 py-1 mt-5  text-white bg-[#1C3144] border border-slate-600  rounded-lg transition duration-300 shadow-lg">
+    <img src="/logo4.png"  alt="Logo"/>
+    <div className="flex flex-col items-start">
+      <span className="text-xl font-bold">App Store</span>
+      <span className="text-sm text-slate-400">Now it Available</span>
+    </div>
+  </a>
+  
 </div>
       </footer>
     </>
